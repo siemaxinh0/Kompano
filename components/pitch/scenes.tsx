@@ -108,9 +108,9 @@ export const SCENES: Scene[] = [
     layout: "phone",
     preset: "home",
     title: "Pomoc na wyciągnięcie ręki.",
-    lead: "Helpovski łączy seniorów ze sprawdzonymi pomocnikami z okolicy. Spacer z psem, drobna pomoc w domu i zakupy — zamówione w kilku dotknięciach.",
+    lead: "Kompano łączy seniorów ze sprawdzonymi pomocnikami z okolicy. Spacer z psem, drobna pomoc w domu i zakupy — zamówione w kilku dotknięciach.",
     voice:
-      "Helpovski. Pomoc na wyciągnięcie ręki. Łączymy seniorów ze sprawdzonymi pomocnikami z okolicy.",
+      "Kompano. Pomoc na wyciągnięcie ręki. Łączymy seniorów ze sprawdzonymi pomocnikami z okolicy.",
     hold: 6500,
     extra: (
       <FeatureChips
@@ -168,9 +168,9 @@ export const SCENES: Scene[] = [
     layout: "phone",
     preset: "home",
     title: "Trzy codzienne sprawy. Jeden ekran.",
-    lead: "Bez rejestracji w okienku i bez szukania numeru telefonu. Senior wybiera, czego potrzebuje — resztą zajmuje się Helpovski.",
+    lead: "Bez rejestracji w okienku i bez szukania numeru telefonu. Senior wybiera, czego potrzebuje — resztą zajmuje się Kompano.",
     voice:
-      "Rozwiązanie jest proste. Trzy codzienne sprawy na jednym ekranie. Senior wybiera, czego potrzebuje, a resztą zajmuje się Helpovski.",
+      "Rozwiązanie jest proste. Trzy codzienne sprawy na jednym ekranie. Senior wybiera, czego potrzebuje, a resztą zajmuje się Kompano.",
     steps: [
       { label: "Spacer z psem", actions: [{ kind: "point", target: "service-dog", ms: 1100 }] },
       { label: "Drobna pomoc domowa", actions: [{ kind: "point", target: "service-home", ms: 1100 }] },
@@ -204,9 +204,9 @@ export const SCENES: Scene[] = [
     layout: "phone",
     preset: "checkout-dog-filled",
     title: "Uczciwa cena, znana z góry",
-    lead: "Widełki zależą od usługi i czasu. Senior sam ustala stawkę — pomocnik dostaje całość, a Helpovski dolicza 10% opłaty serwisowej.",
+    lead: "Widełki zależą od usługi i czasu. Senior sam ustala stawkę — pomocnik dostaje całość, a Kompano dolicza 10% opłaty serwisowej.",
     voice:
-      "Cena jest znana z góry. Senior widzi widełki i sam ustala stawkę. Pomocnik dostaje sto procent, a Helpovski dolicza dziesięć procent opłaty serwisowej.",
+      "Cena jest znana z góry. Senior widzi widełki i sam ustala stawkę. Pomocnik dostaje sto procent, a Kompano dolicza dziesięć procent opłaty serwisowej.",
     steps: [
       { label: "Widełki ceny dla tej usługi", actions: [{ kind: "point", target: "offer-picker", ms: 1600 }] },
       {
@@ -424,9 +424,9 @@ export const SCENES: Scene[] = [
     id: "cta",
     chapter: "business",
     layout: "full",
-    title: "Wypróbuj Helpovski",
+    title: "Wypróbuj Kompano",
     voice:
-      "Helpovski. Spokój seniora i jego bliskich. Teraz Twoja kolej — wypróbuj aplikację.",
+      "Kompano. Spokój seniora i jego bliskich. Teraz Twoja kolej — wypróbuj aplikację.",
     hold: 6000,
     Slide: CtaSlide,
   },

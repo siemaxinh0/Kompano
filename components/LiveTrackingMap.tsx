@@ -64,6 +64,8 @@ type LiveTrackingMapProps = {
   startedAtMs?: number;
   /** Niższa mapa — wszystkie akcje mieszczą się na ekranie. */
   dense?: boolean;
+  /** Mapa rośnie do wolnego miejsca w kolumnie rodzica (rodzic musi być flex-col z ograniczoną wysokością). */
+  fill?: boolean;
   onArrived?: () => void;
 };
 
@@ -342,6 +344,19 @@ function SmoothHelperMotion({
   return null;
 }
 
+function InvalidateOnResize() {
+  const map = useMap();
+
+  useEffect(() => {
+    const container = map.getContainer();
+    const observer = new ResizeObserver(() => map.invalidateSize());
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [map]);
+
+  return null;
+}
+
 export default function LiveTrackingMap({
   destination,
   hasPin,
@@ -354,6 +369,7 @@ export default function LiveTrackingMap({
   motionVerb = "Jedzie",
   startedAtMs,
   dense = false,
+  fill = false,
   onArrived,
 }: LiveTrackingMapProps) {
   const fallbackStartRef = useRef(Date.now());
@@ -450,10 +466,20 @@ export default function LiveTrackingMap({
     : `${motionVerb} do Ciebie`;
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-md">
+    <div
+      className={`overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-md ${
+        fill ? "flex min-h-0 flex-1 flex-col" : ""
+      }`}
+    >
       <div
         className={`relative w-full bg-neutral-100 ${
-          dense ? "h-44" : "h-[22rem]"
+          fill
+            ? dense
+              ? "min-h-32 flex-1"
+              : "min-h-[22rem] flex-1"
+            : dense
+              ? "h-44"
+              : "h-[22rem]"
         }`}
       >
         {routeLoading && (
@@ -474,9 +500,10 @@ export default function LiveTrackingMap({
           scrollWheelZoom
           dragging
           zoomControl={false}
-          className="z-0 h-full w-full [&_.leaflet-control-attribution]:text-[10px]"
+          className="absolute inset-0 z-0 [&_.leaflet-control-attribution]:text-[10px]"
           attributionControl
         >
+          <InvalidateOnResize />
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

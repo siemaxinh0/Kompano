@@ -2540,7 +2540,11 @@ function ActivitySection({
   return (
     <section className="flex flex-1 flex-col gap-5">
       {showLiveTracking && inProgress ? (
-        <div className="flex flex-col gap-3">
+        <div
+          className={`flex flex-col gap-3 ${
+            visitPhase === "en_route" ? "min-h-0 flex-1" : ""
+          }`}
+        >
           {visitPhase === "en_route" && (
             <>
               <LiveTrackingMap
@@ -2555,6 +2559,7 @@ function ActivitySection({
                 destinationLabel={destinationLabel}
                 startedAtMs={phaseStartedAtMs}
                 dense
+                fill
                 onArrived={() => setPhase("awaiting_pin")}
               />
               <EnRouteServicePanel

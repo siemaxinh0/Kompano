@@ -9,7 +9,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Helpovski — pomoc na wyciągnięcie ręki",
+  title: "Kompano — pomoc na wyciągnięcie ręki",
   description:
     "Łączymy osoby ze szczególnymi potrzebami i seniorów z wolontariuszami.",
 };

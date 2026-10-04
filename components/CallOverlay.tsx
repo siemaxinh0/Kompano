@@ -99,7 +99,7 @@ export default function CallOverlay({
 
       <div className="relative flex w-full flex-col items-center gap-2 text-center">
         <p className="text-base font-semibold uppercase tracking-[0.14em] text-white/60">
-          {emergency ? "Połączenie alarmowe" : "Połączenie przez Helpovski"}
+          {emergency ? "Połączenie alarmowe" : "Połączenie przez Kompano"}
         </p>
       </div>
 

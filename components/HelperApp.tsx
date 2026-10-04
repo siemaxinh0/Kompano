@@ -165,7 +165,7 @@ export default function HelperApp() {
         }`}
       >
         <p className="text-sm font-bold uppercase tracking-wide text-white/70">
-          Helpovski · pomocnik
+          Kompano · pomocnik
         </p>
         <h1 className="mt-1 text-2xl font-bold leading-tight sm:text-3xl">
           {tab === "jobs"

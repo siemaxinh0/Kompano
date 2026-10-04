@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <title>Kompano — prezentacja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>@page {
+  size: 1920px 1080px;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #f3efe6;
+  --white: #ffffff;
+  --ink: #0a0a0a;
+  --muted: #404040;
+  --soft: #737373;
+  --emerald-50: #ecfdf5;
+  --emerald-100: #d1fae5;
+  --emerald-200: #a7f3d0;
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+  --emerald-800: #065f46;
+  --violet-600: #7c3aed;
+  --amber-500: #f59e0b;
+  --red-600: #dc2626;
+  --card-radius: 32px;
+  --card-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.45);
+  --ring: 0 0 0 1px rgb(0 0 0 / 0.05);
+}
+
+html,
+body {
+  font-family: "Geist", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: #d4d4d4;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  -webkit-font-smoothing: antialiased;
+}
+
+.slide {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  padding: 88px 104px 120px;
+  display: flex;
+  flex-direction: column;
+  break-after: page;
+}
+
+.slide:last-child {
+  break-after: auto;
+}
+
+.bg-cream {
+  background: var(--cream);
+}
+
+.bg-white {
+  background: var(--white);
+}
+
+.bg-emerald {
+  background: radial-gradient(circle at 85% 15%, #059669 0%, transparent 45%),
+    linear-gradient(150deg, #047857 0%, #065f46 55%, #064e3b 100%);
+  color: #fff;
+}
+
+/* ---------- typografia ---------- */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--emerald-700);
+  margin-bottom: 24px;
+}
+
+.bg-emerald .eyebrow {
+  color: var(--emerald-200);
+}
+
+h1 {
+  font-size: 112px;
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  max-width: 1300px;
+}
+
+.lead {
+  margin-top: 32px;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--muted);
+  max-width: 980px;
+}
+
+.bg-emerald .lead {
+  color: var(--emerald-100);
+}
+
+.statement {
+  margin-top: auto;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--muted);
+  max-width: 1400px;
+}
+
+.statement strong {
+  color: var(--emerald-800);
+}
+
+.center-block {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* ---------- stopka ---------- */
+
+.foot {
+  position: absolute;
+  left: 104px;
+  right: 104px;
+  bottom: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--soft);
+}
+
+.foot-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--emerald-800);
+}
+
+.bg-emerald .foot,
+.bg-emerald .foot-brand {
+  color: var(--emerald-200);
+}
+
+/* ---------- znak marki ---------- */
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 30%;
+  color: #fff;
+  background: linear-gradient(135deg, #10b981, #065f46);
+  box-shadow: 0 8px 20px -8px rgb(4 120 87 / 0.7);
+}
+
+.bg-emerald .brand-mark {
+  background: rgb(255 255 255 / 0.16);
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.25);
+}
+
+/* ---------- układy ---------- */
+
+.split {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 96px;
+  align-items: center;
+  min-height: 0;
+}
+
+.split-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.mt-48 {
+  margin-top: 48px;
+}
+
+/* ---------- karty ---------- */
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: var(--card-radius);
+  padding: 48px;
+  box-shadow: var(--card-shadow), var(--ring);
+}
+
+.bg-white .card {
+  background: #fafaf9;
+}
+
+.card-title {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.card-text {
+  margin-top: 28px;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.card--emerald {
+  background: var(--emerald-800) !important;
+  color: #fff;
+}
+
+.card--emerald .card-text {
+  color: var(--emerald-100);
+}
+
+.stat-value {
+  white-space: nowrap;
+  font-size: 120px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--emerald-700);
+}
+
+.stat-label {
+  margin-top: 24px;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* ---------- usługi ---------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 56px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 26px 14px 14px;
+  border-radius: 999px;
+  font-size: 26px;
+  font-weight: 700;
+  background: rgb(255 255 255 / 0.14);
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+.chip-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tone-dog {
+  background: var(--emerald-600) !important;
+  color: #fff !important;
+}
+
+.tone-home {
+  background: var(--violet-600) !important;
+  color: #fff !important;
+}
+
+.tone-shop {
+  background: var(--amber-500) !important;
+  color: #fff !important;
+}
+
+/* ---------- lista z ikonami ---------- */
+
+.icon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 48px;
+}
+
+.icon-list--lg {
+  gap: 36px;
+}
+
+.icon-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.icon-badge {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--emerald-100);
+  color: var(--emerald-800);
+}
+
+.icon-list--lg .icon-badge {
+  width: 84px;
+  height: 84px;
+  border-radius: 24px;
+}
+
+.card--emerald .icon-badge {
+  background: rgb(255 255 255 / 0.14);
+  color: #fff;
+}
+
+.icon-row-text {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.icon-list--lg .icon-row-text {
+  font-size: 42px;
+}
+
+.price {
+  margin-left: 16px;
+  font-weight: 600;
+  color: var(--soft);
+}
+
+.big-quote {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- kroki ---------- */
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 30px 36px;
+  border-radius: 26px;
+  background: var(--white);
+  box-shadow: var(--card-shadow), var(--ring);
+}
+
+.bg-white .step {
+  background: #fafaf9;
+}
+
+.step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  background: var(--emerald-700);
+}
+
+.step-text {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* ---------- telefon ---------- */
+
+.phone {
+  position: relative;
+  flex-shrink: 0;
+  padding: 14px;
+  border-radius: 64px;
+  background: #111;
+  box-shadow: 0 40px 80px -30px rgb(0 0 0 / 0.55), inset 0 0 0 2px #2a2a2a;
+}
+
+.phone img {
+  display: block;
+  height: 800px;
+  width: auto;
+  border-radius: 50px;
+}
+
+.phone--md img {
+  height: 700px;
+}
+
+.phone--sm img {
+  height: 560px;
+}
+
+.phones {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.phone-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-caption {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/* ---------- tabela porównania ---------- */
+
+.compare {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1.3fr repeat(3, 1fr);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--card-shadow), var(--ring);
+}
+
+.compare > div {
+  padding: 28px 36px;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ece8de;
+}
+
+.compare .head {
+  border-top: none;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  justify-content: center;
+}
+
+.compare .head:first-child {
+  justify-content: flex-start;
+}
+
+.compare .cell {
+  justify-content: center;
+}
+
+.compare .row-label {
+  font-weight: 800;
+}
+
+.compare .hl {
+  background: var(--emerald-50);
+  color: var(--emerald-800);
+}
+
+.mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mark--yes {
+  background: var(--emerald-600);
+  color: #fff;
+}
+
+.mark--no {
+  background: #fee2e2;
+  color: var(--red-600);
+}
+
+.mark--partial {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.mark--na {
+  background: #f5f5f4;
+  color: #a3a3a3;
+}
+
+/* ---------- persona ---------- */
+
+.persona-card {
+  width: 520px;
+  padding: 56px 48px;
+  text-align: center;
+  border-radius: 40px;
+  background: #e5f6ec;
+  box-shadow: var(--card-shadow), var(--ring);
+}
+
+.persona-avatar {
+  margin: 0 auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 110px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #10b981, #065f46);
+  box-shadow: 0 0 0 10px #fff;
+}
+
+.persona-name {
+  margin-top: 40px;
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.persona-meta {
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--emerald-800);
+}
+
+.quote {
+  margin-top: 48px;
+  padding: 32px 40px;
+  border-radius: 28px;
+  background: var(--emerald-800);
+  color: #fff;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+/* ---------- biznes ---------- */
+
+.big-number {
+  font-size: 200px;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--emerald-700);
+}
+
+.big-number--money {
+  white-space: nowrap;
+  font-size: 128px;
+  line-height: 1.4;
+}
+
+.card--emerald .big-number {
+  color: #fff;
+}
+
+/* ---------- roadmapa i CTA ---------- */
+
+.road {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.road-step {
+  padding: 56px 48px;
+  border-radius: 32px;
+  background: rgb(255 255 255 / 0.1);
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.18);
+}
+
+.road-step--now {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.road-tag {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--emerald-200);
+}
+
+.road-step--now .road-tag {
+  color: var(--emerald-700);
+}
+
+.road-title {
+  margin-top: 20px;
+  font-size: 52px;
+  font-weight: 800;
+}
+</style>
+</head>
+<body>
+<section class="slide bg-emerald">
+    <div class="split">
+      <div class="split-copy">
+        <span class="eyebrow"><span class="brand-mark" style="width:56px;height:56px"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span>
+        <h1>Pomoc na wyciągnięcie ręki</h1>
+        <p class="lead">Pomocnicy z sąsiedztwa, zweryfikowani w mObywatelu.</p>
+      </div>
+      <div class="phone "><img src="../assets/home.png" alt="" /></div>
+    </div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>1 / 10</span></div></section>
+<section class="slide bg-cream">
+    <span class="eyebrow">Problem</span>
+    <h2>Polska się starzeje</h2>
+    <div class="grid-3 center-block">
+      <div class="card"><div class="stat-value">10 mln</div><p class="stat-label">osób po sześćdziesiątce</p></div>
+      <div class="card"><div class="stat-value">1,5 mln</div><p class="stat-label">seniorów mieszka samotnie</p></div>
+      <div class="card"><div class="stat-value">180 tys.</div><p class="stat-label">seniorów w Krakowie</p></div>
+    </div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>2 / 10</span></div></section>
+<section class="slide bg-white">
+    <span class="eyebrow">Dla kogo</span>
+    <h2>Poznaj panią Helenę</h2>
+    <div class="split" style="grid-template-columns:auto 1fr;gap:88px">
+      <div class="persona-card">
+        <div class="persona-avatar">H</div>
+        <p class="persona-name">Helena, 78 lat</p>
+      </div>
+      <div>
+        <div class="icon-list icon-list--lg" style="margin-top:0">
+          <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dog" aria-hidden="true"><path d="M11.25 16.25h1.5L12 17z"></path><path d="M16 14v.5"></path><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309"></path><path d="M8 14v.5"></path><path d="M8.5 8.5c-.384 1.05-1.083 2.028-2.344 2.5-1.931.722-3.576-.297-3.656-1-.113-.994 1.177-6.53 4-7 1.923-.321 3.651.845 3.651 2.235A7.497 7.497 0 0 1 14 5.277c0-1.39 1.844-2.598 3.767-2.277 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5"></path></svg></span><span class="icon-row-text">Mieszka sama z psem</span></div>
+          <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg></span><span class="icon-row-text">Zakupy na trzecie piętro</span></div>
+          <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-alert" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg></span><span class="icon-row-text">Boi się obcych w domu</span></div>
+        </div>
+        <p class="quote">Bez zaufania nie ma zamówienia.</p>
+      </div>
+    </div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>3 / 10</span></div></section>
+<section class="slide bg-cream">
+    <span class="eyebrow">Alternatywy</span>
+    <h2>Dziś nie ma dobrego wyboru</h2>
+    <div class="compare center-block"><div class="head"></div><div class="head">Od ręki</div><div class="head">Sprawdzone</div><div class="head">Jasna cena</div><div class="row-label">Rodzina</div><div class="cell"><span class="mark mark--partial"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus" aria-hidden="true"><path d="M5 12h14"></path></svg></span></div><div class="cell"><span class="mark mark--yes"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></div><div class="cell"><span class="mark mark--yes"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></div><div class="row-label">Ogłoszenie</div><div class="cell"><span class="mark mark--partial"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus" aria-hidden="true"><path d="M5 12h14"></path></svg></span></div><div class="cell"><span class="mark mark--no"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span></div><div class="cell"><span class="mark mark--no"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span></div><div class="row-label">Instytucje</div><div class="cell"><span class="mark mark--no"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span></div><div class="cell"><span class="mark mark--yes"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></div><div class="cell"><span class="mark mark--partial"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus" aria-hidden="true"><path d="M5 12h14"></path></svg></span></div><div class="row-label hl"><span style="display:flex;align-items:center;gap:16px"><span class="brand-mark" style="width:48px;height:48px"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span></div><div class="cell hl"><span class="mark mark--yes"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></div><div class="cell hl"><span class="mark mark--yes"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></div><div class="cell hl"><span class="mark mark--yes"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></div></div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>4 / 10</span></div></section>
+<section class="slide bg-cream">
+    <div class="split">
+      <div class="split-copy">
+        <span class="eyebrow">Rozwiązanie</span>
+        <h2>Trzy sprawy. Jeden ekran.</h2>
+        <div class="icon-list icon-list--lg"><div class="icon-row"><span class="icon-badge tone-dog"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dog" aria-hidden="true"><path d="M11.25 16.25h1.5L12 17z"></path><path d="M16 14v.5"></path><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309"></path><path d="M8 14v.5"></path><path d="M8.5 8.5c-.384 1.05-1.083 2.028-2.344 2.5-1.931.722-3.576-.297-3.656-1-.113-.994 1.177-6.53 4-7 1.923-.321 3.651.845 3.651 2.235A7.497 7.497 0 0 1 14 5.277c0-1.39 1.844-2.598 3.767-2.277 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5"></path></svg></span><span class="icon-row-text">Spacer z psem <span class="price">od 20 zł</span></span></div><div class="icon-row"><span class="icon-badge tone-home"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house lucide-home" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></span><span class="icon-row-text">Pomoc w domu <span class="price">od 35 zł</span></span></div><div class="icon-row"><span class="icon-badge tone-shop"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg></span><span class="icon-row-text">Zakupy <span class="price">od 40 zł</span></span></div></div>
+      </div>
+      <div class="phone "><img src="../assets/home.png" alt="" /></div>
+    </div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>5 / 10</span></div></section>
+<section class="slide bg-white">
+    <div class="split">
+      <div class="split-copy">
+        <span class="eyebrow">Zamówienie</span>
+        <h2>Gotowe w minutę</h2>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><span class="step-text">Wybierz usługę i czas</span></div>
+          <div class="step"><span class="step-num">2</span><span class="step-text">Ustal cenę</span></div>
+          <div class="step"><span class="step-num">3</span><span class="step-text">Pomocnik jest w drodze</span></div>
+        </div>
+      </div>
+      <div class="phone "><img src="../assets/checkout.png" alt="" /></div>
+    </div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>6 / 10</span></div></section>
+<section class="slide bg-cream">
+    <div class="split">
+      <div class="split-copy">
+        <span class="eyebrow">Bezpieczeństwo</span>
+        <h2>Każdy pomocnik sprawdzony w&nbsp;mObywatelu</h2>
+        <p class="lead">Senior wie, kto stoi za drzwiami.</p>
+        <div class="icon-list icon-list--lg">
+          <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span class="icon-row-text">Podgląd na mapie</span></div>
+          <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round" aria-hidden="true"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle></svg></span><span class="icon-row-text">Kod przy drzwiach</span></div>
+          <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-siren" aria-hidden="true"><path d="M7 18v-6a5 5 0 1 1 10 0v6"></path><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"></path><path d="M21 12h1"></path><path d="M18.5 4.5 18 5"></path><path d="M2 12h1"></path><path d="M12 2v1"></path><path d="m4.929 4.929.707.707"></path><path d="M12 12v6"></path></svg></span><span class="icon-row-text">Przycisk pomocy</span></div>
+        </div>
+      </div>
+      <div class="phones"><div class="phone phone--md"><img src="../assets/tracking.png" alt="" /></div><div class="phone phone--md"><img src="../assets/pin.png" alt="" /></div></div>
+    </div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>7 / 10</span></div></section>
+<section class="slide bg-white">
+    <div class="split">
+      <div class="split-copy">
+        <span class="eyebrow">Dwie strony rynku</span>
+        <h2>Zyskują obie strony</h2>
+        <div class="grid-2 mt-48">
+          <div class="card">
+            <p class="card-title">Senior</p>
+            <div class="icon-list" style="margin-top:32px">
+              <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-type" aria-hidden="true"><path d="M12 4v16"></path><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2"></path><path d="M9 20h6"></path></svg></span><span class="icon-row-text">Prosta obsługa</span></div>
+              <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span><span class="icon-row-text">Spokój rodziny</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <p class="card-title">Pomocnik</p>
+            <div class="icon-list" style="margin-top:32px">
+              <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bike" aria-hidden="true"><circle cx="18.5" cy="17.5" r="3.5"></circle><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="15" cy="5" r="1"></circle><path d="M12 17.5V14l-3-3 4-3 2 3h2"></path></svg></span><span class="icon-row-text">Praca blisko domu</span></div>
+              <div class="icon-row"><span class="icon-badge "><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand-coins" aria-hidden="true"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"></path><path d="m2 16 6 6"></path><circle cx="16" cy="9" r="2.9"></circle><circle cx="6" cy="5" r="3"></circle></svg></span><span class="icon-row-text">100% stawki</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone "><img src="../assets/helper.png" alt="" /></div>
+    </div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>8 / 10</span></div></section>
+<section class="slide bg-cream">
+    <span class="eyebrow">Model biznesowy</span>
+    <h2>Jak zarabiamy</h2>
+    <div class="grid-2 center-block">
+      <div class="card">
+        <div class="big-number">10%</div>
+        <p class="card-text">od każdego zlecenia</p>
+      </div>
+      <div class="card card--emerald">
+        <div class="big-number big-number--money">~75 tys. zł</div>
+        <p class="card-text">przychodu miesięcznie przy 500&nbsp;zleceniach dziennie po&nbsp;ok.&nbsp;50&nbsp;zł</p>
+      </div>
+    </div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>9 / 10</span></div></section>
+<section class="slide bg-emerald">
+    <span class="eyebrow">Plan</span>
+    <h2>Start w Krakowie</h2>
+    <div class="road"><div class="road-step road-step--now"><p class="road-tag">Teraz</p><p class="road-title">Pilotaż</p></div><div class="road-step"><p class="road-tag">Następnie</p><p class="road-title">Kolejne miasta</p></div><div class="road-step"><p class="road-tag">Potem</p><p class="road-title">Rodziny i gminy</p></div></div>
+  <div class="foot"><span class="foot-brand"><span class="brand-mark" style="width:36px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg></span> Kompano</span><span>10 / 10</span></div></section>
+</body>
+</html>

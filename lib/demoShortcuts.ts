@@ -1,4 +1,4 @@
-/** Demo / mock skróty produktowe Helpovski */
+/** Demo / mock skróty produktowe Kompano */
 
 export const DEMO_JUMP_EVENT = "helpovski-demo-jump";
 export const DEMO_JUMP_STORAGE_KEY = "helpovski-demo-jump";
