@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { Bike, HeartHandshake } from "lucide-react";
 import ClientApp from "@/components/ClientApp";
 import HelperApp from "@/components/HelperApp";
 import {
@@ -102,8 +103,79 @@ export default function AppRoleSwitcher() {
     <>
       <DesktopBrandSide side="left" />
       <DesktopBrandSide side="right" />
+      <DesktopRoleToggle role={role} onChange={setRolePersist} />
       {role === "client" ? <ClientApp /> : <HelperApp />}
     </>
+  );
+}
+
+const ROLE_OPTIONS: {
+  id: AppRole;
+  label: string;
+  hint: string;
+  icon: typeof Bike;
+}[] = [
+  { id: "client", label: "Zleceniodawca", hint: "Senior zamawia pomoc", icon: HeartHandshake },
+  { id: "helper", label: "Zleceniobiorca", hint: "Pomocnik przyjmuje zlecenia", icon: Bike },
+];
+
+/** Przełącznik trybu w lewym pasie pod logo — tylko na szerokim ekranie. */
+function DesktopRoleToggle({
+  role,
+  onChange,
+}: {
+  role: AppRole;
+  onChange: (role: AppRole) => void;
+}) {
+  return (
+    <div className="fixed left-0 right-[calc(50%+14rem)] top-[calc(50%+4.5rem)] hidden justify-center lg:flex">
+      <div
+        role="radiogroup"
+        aria-label="Tryb aplikacji"
+        className="w-[min(20rem,80%)] rounded-3xl bg-white p-2 shadow-lg shadow-black/5 ring-1 ring-black/5"
+      >
+        <p className="px-3 pb-2 pt-1 text-xs font-bold uppercase tracking-wide text-neutral-500">
+          Tryb aplikacji
+        </p>
+        {ROLE_OPTIONS.map((opt) => {
+          const Icon = opt.icon;
+          const selected = role === opt.id;
+          return (
+            <button
+              key={opt.id}
+              type="button"
+              role="radio"
+              aria-checked={selected}
+              onClick={() => onChange(opt.id)}
+              className={`flex w-full items-center gap-3 rounded-2xl px-3 py-3 text-left transition ${
+                selected ? "bg-emerald-700 text-white" : "text-neutral-800 hover:bg-neutral-100"
+              }`}
+            >
+              <span
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
+                  selected ? "bg-white/15" : "bg-emerald-50 text-emerald-700"
+                }`}
+              >
+                <Icon className="h-5 w-5" strokeWidth={2.5} />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-base font-bold">{opt.label}</span>
+                <span
+                  className={`block truncate text-sm font-semibold ${
+                    selected ? "text-emerald-100" : "text-neutral-500"
+                  }`}
+                >
+                  {opt.hint}
+                </span>
+              </span>
+            </button>
+          );
+        })}
+        <p className="px-3 pb-1 pt-2 text-xs font-semibold text-neutral-400">
+          Skrót: {ROLE_SWITCH_SHORTCUT_LABEL}
+        </p>
+      </div>
+    </div>
   );
 }
 
