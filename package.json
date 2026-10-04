@@ -1,12 +1,13 @@
 {
-  "name": "helpovski-app",
+  "name": "kompano",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx next dev",
-    "build": "npx next build --webpack",
-    "start": "npx next start",
-    "lint": "eslint"
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint",
+    "deck": "npm run build --prefix pitch-deck"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

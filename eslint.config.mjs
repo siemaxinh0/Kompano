@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Prezentacje i jednorazowe skrypty — poza aplikacją:
+    "pitch-deck/**",
+    "scripts/**",
+    "components/pitch/**",
+    "lib/demoDirector.ts",
   ]),
 ]);
 

@@ -1,0 +1,10 @@
+# Prezentacje i materiały marki — nie są częścią aplikacji
+pitch-deck/
+brand/
+components/pitch/
+lib/demoDirector.ts
+
+# Jednorazowe skrypty do refaktoryzacji kodu
+scripts/
+
+README.md

@@ -1,0 +1,12 @@
+{
+  "name": "kompano-pitch-deck",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:pdf": "node build.mjs --no-shots"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.43.1"
+  }
+}
