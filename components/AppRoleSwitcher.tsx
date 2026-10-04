@@ -98,5 +98,30 @@ export default function AppRoleSwitcher() {
     );
   }
 
-  return role === "client" ? <ClientApp /> : <HelperApp />;
+  return (
+    <>
+      <DesktopBrandSide side="left" />
+      <DesktopBrandSide side="right" />
+      {role === "client" ? <ClientApp /> : <HelperApp />}
+    </>
+  );
+}
+
+/** Logo w wolnym pasie obok kolumny aplikacji (max-w-md = 28rem) — tylko na szerokim ekranie. */
+function DesktopBrandSide({ side }: { side: "left" | "right" }) {
+  return (
+    <div
+      className={`pointer-events-none fixed inset-y-0 hidden items-center justify-center lg:flex ${
+        side === "left" ? "left-0 right-[calc(50%+14rem)]" : "left-[calc(50%+14rem)] right-0"
+      }`}
+      aria-hidden
+    >
+      <img
+        src="/kompano-logo-wordmark.png"
+        alt=""
+        className="w-[min(22rem,75%)] select-none"
+        draggable={false}
+      />
+    </div>
+  );
 }
